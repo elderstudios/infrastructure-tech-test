@@ -1,7 +1,11 @@
 # Aurora Infrastructure Technical Test
+
 Welcome to the Aurora infrastructure technical test!
+
 Everyone is unique in their own way, and we are looking for people from all walks of life to become part of our inclusive culture. We’re committed to making Aurora a diverse and inclusive environment for everyone. Diversity for us means respect for and appreciation of differences in gender, age, sexual orientation, disability, race and ethnic origin, religion and faith, marital status, social, educational background and way of thinking. Our dedication is to ensure you get the chance to be the best that you can be, showcase your full potential and make the right choice for you.
+
 We hope that you find this exercise fun and interesting. There are no trick questions; we want to see your solution to a simple problem with well thought out and structured code. If you have any questions about any part of this exercise, please do not hesitate to reach out to us.
+
 There is no time limit on how much time to commit to the test; however, we suggest you spend no more than 1 day on it.
 
 ## The Brief
