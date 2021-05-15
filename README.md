@@ -27,14 +27,15 @@ curl --request GET \
 ```
 
 The API uses a Postgres database to store the Member data. Connection to the database is configured through environment variables that are read during application start.
-```
-variable - description - example
-DB_HOST - database server host address - localhost
-PSQL_USER - database username - postgres
-PSQL_PASS - password for the user - changeme
-PSQL_DBNAME - schema name - members
-PSQL_PORT - database server port - 5432
-```
+
+|variable | description | example|
+| --- | --- | --- |
+|DB_HOST | database server host address | localhost|
+|PSQL_USER | database username | postgres|
+|PSQL_PASS | password for the user | changeme|
+|PSQL_DBNAME | schema name | members|
+|PSQL_PORT | database server port | 5432|
+
 
 The API application will connect to the Database on start in order to run Schema migration. If it can’t connect, it will fail to start and will write error into logs.
 If it successfully connects to the database, you will see `msg=SchemaUpToDate` in logs.
