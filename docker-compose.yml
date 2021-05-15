@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: aurora_postgres
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-aurora}
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  members-api:
+    container_name: aurora_members_api
+    image: infrastructure-test
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      PSQL_USER:  ${POSTGRES_USER:-postgres}
+      PSQL_PASS:  ${POSTGRES_PASSWORD:-changeme}
+      PSQL_DBNAME:  ${POSTGRES_DB:-aurora}
+      PSQL_PORT:  5432
+
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
